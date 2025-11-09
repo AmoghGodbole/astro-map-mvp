@@ -1,33 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    // --- Mobile Menu Toggle Logic (Fix) ---
     const menuButton = document.getElementById('menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (menuButton && mobileMenu) {
         menuButton.addEventListener('click', () => {
-            // Toggles the 'hidden' class on the mobile menu div
+            // Toggles the Tailwind 'hidden' class to show/hide the menu.
             mobileMenu.classList.toggle('hidden');
         });
     }
 
-    
+    // --- Form Submission and Preview Logic ---
     const previewBtn = document.getElementById('previewBtn');
     const orderForm = document.getElementById('orderForm');
-    
-    // Attempt to generate preview on load (if elements exist on the page)
+
+    // Attach preview function only if elements exist (on customize.html)
     if (previewBtn) {
         window.onload = generateMapPreview; 
         previewBtn.addEventListener('click', generateMapPreview);
     }
 
-    // --- Step 1: Simulated Map Preview Logic ---
     function generateMapPreview() {
         const dateInput = document.getElementById('date');
         const locationInput = document.getElementById('location');
         const productInput = document.getElementById('product');
         const previewArea = document.getElementById('preview-area');
 
-        // Check if all necessary elements are present (prevents errors on index.html)
         if (!dateInput || !locationInput || !productInput || !previewArea) return;
 
         const date = dateInput.value || '[Date Missing]';
@@ -39,9 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Simulating the image URL based on product
         const baseColor = product === 'coaster' ? '333333' : '0A0A1F'; 
-        const accentColor = 'FFC300'; 
+        const accentColor = 'B3B4FF'; 
         
         const simulatedImage = `https://via.placeholder.com/600x600/${baseColor}/${accentColor}?text=Map+for+${location}`;
         const momentText = `The Sky over ${location} on ${date}.`;
@@ -49,13 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
         previewArea.innerHTML = `
             <div style="text-align: center;">
                 <h4>${momentText}</h4>
-                <img id="preview-image" src="${simulatedImage}" alt="Simulated Star Map Preview">
+                <img id="preview-image" src="${simulatedImage}" alt="Simulated Star Map Preview" class="max-w-full h-auto rounded-md">
                 <p style="font-size: 0.9em; margin-top: 10px;">(Low-Resolution Preview - Final map is highly detailed and accurate)</p>
             </div>
         `;
     }
 
-    // --- Step 2: Form Submission to Formspree (Data Capture) ---
     if (orderForm) {
         orderForm.addEventListener('submit', function(event) {
             event.preventDefault(); 
@@ -66,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const submitButton = form.querySelector('button[type="submit"]');
 
             if (!formspreeEndpoint) {
-                messageElement.textContent = "FATAL ERROR: Formspree endpoint is missing in the meta tag!";
+                messageElement.textContent = "FATAL ERROR: Formspree endpoint is missing!";
                 return;
             }
 
@@ -85,20 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => {
                 if (response.ok) {
                     messageElement.textContent = "Success! Your custom order details have been submitted. We will be in touch shortly.";
-                    
-                    /* --- FUTURE PAYMENT INTEGRATION LOGIC ---
-                    const product = document.getElementById('product').value;
-                    const plaqueLink = document.getElementById('plaque_link').value;
-                    // ... get other links ...
-                    
-                    if (paymentLink) {
-                       // window.location.href = paymentLink;
-                    } 
-                    */
-                   
-                   // For MVP launch, just clear the form and display success message
-                   form.reset();
-                   
+                    form.reset();
                 } else {
                     messageElement.textContent = "Error submitting data. Please try again.";
                 }

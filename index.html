@@ -6,6 +6,8 @@
     <title>Astro-Map Studio | Map the Stars of Your Life</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="script.js" defer></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;800&display=swap" rel="stylesheet">
 
@@ -58,9 +60,27 @@
 
         <div id="mobile-menu" class="hidden md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center bg-gray-900/90 border-t border-gray-800">
-                <a href="#products" class="block py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-accent font-medium">Products</a>
-                <a href="#customer-reviews" class="block py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-accent font-medium">Reviews</a>
-                <a href="customize.html" class="block py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-accent font-medium">Order Now</a>
+                
+                <a href="#products" class="flex items-center justify-center py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-accent font-medium">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.11a.563.563 0 0 0 .475.345l5.518.442a.562.562 0 0 1 .398.992l-4.113 3.526a.563.563 0 0 0-.167.558l1.248 5.378a.562.562 0 0 1-.84.604l-4.721-2.883a.563.563 0 0 0-.584 0L6.111 21.084a.562.562 0 0 1-.84-.604l1.248-5.378a.563.563 0 0 0-.167-.558L2.21 9.932a.562.562 0 0 1 .398-.992l5.518-.442a.563.563 0 0 0 .475-.345l2.125-5.11Z"/>
+                    </svg>
+                    <span>Products</span>
+                </a>
+                
+                <a href="#customer-reviews" class="flex items-center justify-center py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-accent font-medium">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                    </svg>
+                    <span>Reviews</span>
+                </a>
+                
+                <a href="customize.html" class="flex items-center justify-center py-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-accent font-medium">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4H6z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    <span>Order Now</span>
+                </a>
             </div>
         </div>
     </nav>
