@@ -3,73 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astro-Map Studio | Your Custom Moment Under The Stars</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Astro-Map Studio | Map the Stars of Your Life</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --dark-blue: #0A0A1F;
+            --accent-gold: #FFC300;
+        }
+        /* Custom font stack for a modern look */
+        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+        
+        /* Custom styles for the star icon/logo (Simulated) */
+        .astro-logo {
+            font-size: 1.5rem;
+            line-height: 1;
+            display: inline-block;
+        }
+    </style>
 </head>
-<body class="landing-page">
-    <header>
-        <h1>Astro-Map Studio</h1>
-        <h2>Commemorate the Stars of Your Lifetime Moment.</h2>
-    </header>
+<body class="bg-[#0A0A1F] text-gray-50 min-h-screen">
 
-    <div class="container">
-        <section id="hero" style="text-align: center; padding-bottom: 40px;">
-            <p style="font-size: 1.5em; color: var(--star-white);">
-                The perfect heirloom gift. We map the exact star alignment from any date, time, and location on Earth, engraved onto wood, resin, or metal.
-            </p>
-            <a href="customize.html" class="btn btn-gold btn-cta">
-                ✨ DESIGN YOUR CUSTOM STAR MAP NOW
-            </a>
-        </section>
-
-        <section id="reviews">
-            <h3 style="text-align: center; color: var(--accent-gold);">See Our Happy Customers</h3>
-            
-            <div class="slideshow-container">
-                <div class="slide">
-                    <img src="https://via.placeholder.com/600x400/1E234B/FFC300?text=Customer+Map+1+(Plaque)" alt="Customer Review 1">
-                    <div class="review-text">
-                        "The most sentimental gift ever! The map of our engagement night is stunning on the wall." - A.K., Mumbai
-                    </div>
+    <nav class="bg-black/40 shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="astro-logo text-[#FFC300]">★</span>
+                    <a href="index.html" class="text-2xl font-extrabold tracking-wider text-white ml-2">AstroMaps</a>
                 </div>
-                <div class="slide">
-                    <img src="https://via.placeholder.com/600x400/1E234B/FFC300?text=Customer+Map+2+(Coaster+Set)" alt="Customer Review 2">
-                    <div class="review-text">
-                        "The resin coasters are beautiful! Perfect wedding favours. Highly recommend Astro-Map." - P.S., Bangalore
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="https://via.placeholder.com/600x400/1E234B/FFC300?text=Customer+Map+3+(Charm)" alt="Customer Review 3">
-                    <div class="review-text">
-                        "Loved the keychain! Simple, elegant, and so meaningful. Great quality engraving." - R.J., Delhi
-                    </div>
+                
+                <div class="flex space-x-6 sm:space-x-10">
+                    <a href="#" class="text-gray-300 hover:text-[#FFC300] transition duration-200 font-medium">Products</a>
+                    <a href="#" class="text-gray-300 hover:text-[#FFC300] transition duration-200 font-medium">Reviews</a>
+                    <a href="customize.html" class="text-gray-300 hover:text-[#FFC300] transition duration-200 font-medium">Order Now</a>
                 </div>
             </div>
+        </div>
+    </nav>
+
+    <main class="py-20 md:py-32 text-center max-w-4xl mx-auto px-4">
+        
+        <div class="flex justify-center items-center mb-6">
+            <span class="astro-logo text-[#FFC300] text-6xl md:text-7xl">★</span>
+        </div>
+        
+        <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-white">
+            Map the Stars of Your Life
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-3xl mx-auto font-light">
+            Create a beautiful, custom map of the stars and constellations from any special moment in time. The perfect gift for anniversaries, birthdays, and newborns.
+        </p>
+
+        <a href="customize.html" class="inline-block py-4 px-12 rounded-full text-xl font-bold bg-[#FFC300] text-gray-900 
+            hover:bg-[#FFD740] transition duration-300 transform hover:scale-105 shadow-2xl">
+            Create Your Map Now
+        </a>
+    </main>
+
+    <div class="max-w-7xl mx-auto px-4 pb-20">
+
+        <section id="products" class="pt-16 pb-20 border-t border-gray-800">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Our Most Popular Products</h2>
             
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 hover:border-[#FFC300]/50 transition duration-300">
+                    <div class="text-4xl text-[#FFC300] mb-4">🖼️</div>
+                    <h3 class="text-2xl font-semibold text-white mb-3">Custom Prints</h3>
+                    <p class="text-gray-400">High-quality paper prints of your unique star map. Printed on archival stock and perfect for framing.</p>
+                </div>
+
+                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 hover:border-[#FFC300]/50 transition duration-300">
+                    <div class="text-4xl text-[#FFC300] mb-4">✨</div>
+                    <h3 class="text-2xl font-semibold text-white mb-3">Framed Maps</h3>
+                    <p class="text-gray-400">Your star map, professionally framed in a minimalist wood or metal finish, ready to hang. A timeless piece of art.</p>
+                </div>
+
+                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 hover:border-[#FFC300]/50 transition duration-300">
+                    <div class="text-4xl text-[#FFC300] mb-4">☕</div>
+                    <h3 class="text-2xl font-semibold text-white mb-3">Star Coasters</h3>
+                    <p class="text-gray-400">A set of 4 custom resin or stone coasters featuring your special date's constellation. Perfect for desk or living room decor.</p>
+                </div>
+            </div>
         </section>
 
-        <section style="text-align: center; padding-top: 40px;">
-            <a href="customize.html" class="btn btn-gold btn-cta">
-                BEGIN YOUR CUSTOMIZATION
-            </a>
+        <section id="customer-reviews" class="py-16">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">From Our Customers</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-[#FFC300]">
+                    "Absolutely stunning quality. It brought tears to my wife's eyes. The engraving on the wood is flawless."
+                    <p class="text-[#FFC300] mt-3 font-semibold">— Priya K. (Anniversary Gift)</p>
+                </div>
+
+                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-[#FFC300]">
+                    "I ordered a map of my son's birth night. The design team was amazing and the final product is a perfect addition to his nursery."
+                    <p class="text-[#FFC300] mt-3 font-semibold">— Arjun S. (Newborn Gift)</p>
+                </div>
+
+                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-[#FFC300]">
+                    "The custom coasters are such a unique housewarming present. The finish is high quality and very durable. 10/10!"
+                    <p class="text-[#FFC300] mt-3 font-semibold">— Sneha R. (Housewarming)</p>
+                </div>
+            </div>
         </section>
     </div>
 
-    <script>
-        let slideIndex = 0;
-        showSlides();
+    <footer class="text-center py-6 border-t border-gray-800 bg-black/40">
+        <p class="text-gray-500 text-sm">
+            <span class="astro-logo text-[#FFC300]">★</span>
+            &copy; 2025 AstroMaps. All rights reserved.
+        </p>
+    </footer>
 
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("slide");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
-            slides[slideIndex-1].style.display = "block";  
-            setTimeout(showSlides, 4000); // Change image every 4 seconds
-        }
-    </script>
 </body>
 </html>
