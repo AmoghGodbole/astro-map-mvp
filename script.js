@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuButton && mobileMenu) {
+        menuButton.addEventListener('click', () => {
+            // Toggles the 'hidden' class on the mobile menu div
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    
     const previewBtn = document.getElementById('previewBtn');
     const orderForm = document.getElementById('orderForm');
     
