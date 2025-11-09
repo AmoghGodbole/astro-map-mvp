@@ -12,18 +12,22 @@
     <style>
         :root {
             --dark-blue: #0A0A1F;
-            --accent-gold: #FFC300;
+            --accent-blue: #B3B4FF; /* NEW ACCENT COLOR */
         }
-        /* UPDATED: Apply Space Grotesk to the body */
         body { font-family: 'Space Grotesk', sans-serif; }
-        
-        /* Custom styles for the star icon/logo (Simulated) */
-        .astro-logo {
-            font-size: 1.5rem;
-            line-height: 1;
-            display: inline-block;
-        }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent': '#B3B4FF',
+                        'accent-hover': '#C8C9FF',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="bg-[#0A0A1F] text-gray-50 min-h-screen">
 
@@ -31,14 +35,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
-                    <span class="astro-logo text-[#FFC300]">★</span>
-                    <a href="index.html" class="text-2xl font-extrabold tracking-wider text-white ml-2">AstroMaps</a>
+                    <svg class="w-6 h-6 text-accent mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                        <path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
+                    </svg>
+                    <a href="index.html" class="text-2xl font-extrabold tracking-wider text-white">AstroMaps</a>
                 </div>
                 
                 <div class="flex space-x-6 sm:space-x-10">
-                    <a href="#products" class="text-gray-300 hover:text-[#FFC300] transition duration-200 font-medium">Products</a>
-                    <a href="#customer-reviews" class="text-gray-300 hover:text-[#FFC300] transition duration-200 font-medium">Reviews</a>
-                    <a href="customize.html" class="text-gray-300 hover:text-[#FFC300] transition duration-200 font-medium">Order Now</a>
+                    <a href="#products" class="text-gray-300 hover:text-accent transition duration-200 font-medium">Products</a>
+                    <a href="#customer-reviews" class="text-gray-300 hover:text-accent transition duration-200 font-medium">Reviews</a>
+                    <a href="customize.html" class="text-gray-300 hover:text-accent transition duration-200 font-medium">Order Now</a>
                 </div>
             </div>
         </div>
@@ -47,7 +54,10 @@
     <main class="py-20 md:py-32 text-center max-w-4xl mx-auto px-4">
         
         <div class="flex justify-center items-center mb-6">
-            <span class="astro-logo text-[#FFC300] text-6xl md:text-7xl">★</span>
+            <svg class="w-12 h-12 text-accent md:w-16 md:h-16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                <path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
+            </svg>
         </div>
         
         <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-tight text-white">
@@ -58,9 +68,12 @@
             Create a beautiful, custom map of the stars and constellations from any special moment in time. The perfect gift for anniversaries, birthdays, and newborns.
         </p>
 
-        <a href="customize.html" class="inline-block py-4 px-12 rounded-full text-xl font-bold bg-[#FFC300] text-gray-900 
-            hover:bg-[#FFD740] transition duration-300 transform hover:scale-105 shadow-2xl">
-            Create Your Map Now
+        <a href="customize.html" class="inline-flex items-center justify-center space-x-2 py-4 px-12 rounded-full text-xl font-bold bg-accent text-gray-900 
+            hover:bg-accent-hover transition duration-300 transform hover:scale-105 shadow-2xl">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4H6z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            <span>Create Your Map Now</span>
         </a>
     </main>
 
@@ -71,19 +84,19 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 transition duration-300 transform hover:scale-[1.02] hover:border-[#FFC300]">
+                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 transition duration-300 transform hover:scale-[1.02] hover:border-accent">
                     <img class="w-full h-auto rounded-md mb-4 object-cover aspect-square" src="images/CustomStars.webp" alt="Astro-Map Custom Print Example">
                     <h3 class="text-2xl font-semibold text-white mb-3">Custom Prints</h3>
                     <p class="text-gray-400">High-quality paper prints of your unique star map. Printed on archival stock and perfect for framing.</p>
                 </div>
 
-                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 transition duration-300 transform hover:scale-[1.02] hover:border-[#FFC300]">
+                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 transition duration-300 transform hover:scale-[1.02] hover:border-accent">
                     <img class="w-full h-auto rounded-md mb-4 object-cover aspect-square" src="images/FramedMaps.webp" alt="Astro-Map Framed Map Example">
                     <h3 class="text-2xl font-semibold text-white mb-3">Framed Maps</h3>
                     <p class="text-gray-400">Your star map, professionally framed in a minimalist wood or metal finish, ready to hang. A timeless piece of art.</p>
                 </div>
 
-                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 transition duration-300 transform hover:scale-[1.02] hover:border-[#FFC300]">
+                <div class="bg-gray-900/50 p-6 rounded-lg shadow-xl border border-gray-700/50 transition duration-300 transform hover:scale-[1.02] hover:border-accent">
                     <img class="w-full h-auto rounded-md mb-4 object-cover aspect-square" src="images/StarCoasters.webp" alt="Astro-Map Star Coasters Example">
                     <h3 class="text-2xl font-semibold text-white mb-3">Star Coasters</h3>
                     <p class="text-gray-400">A set of 4 custom resin or stone coasters featuring your special date's constellation. Perfect for desk or living room decor.</p>
@@ -96,19 +109,19 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-[#FFC300]">
+                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-accent">
                     "Absolutely stunning quality. It brought tears to my wife's eyes. The engraving on the wood is flawless."
-                    <p class="text-[#FFC300] mt-3 font-semibold">— Priya K. (Anniversary Gift)</p>
+                    <p class="text-accent mt-3 font-semibold">— Priya K. (Anniversary Gift)</p>
                 </div>
 
-                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-[#FFC300]">
+                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-accent">
                     "I ordered a map of my son's birth night. The design team was amazing and the final product is a perfect addition to his nursery."
-                    <p class="text-[#FFC300] mt-3 font-semibold">— Arjun S. (Newborn Gift)</p>
+                    <p class="text-accent mt-3 font-semibold">— Arjun S. (Newborn Gift)</p>
                 </div>
 
-                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-[#FFC300]">
+                <div class="bg-gray-900/70 p-6 rounded-lg italic text-gray-300 border-l-4 border-accent">
                     "The custom coasters are such a unique housewarming present. The finish is high quality and very durable. 10/10!"
-                    <p class="text-[#FFC300] mt-3 font-semibold">— Sneha R. (Housewarming)</p>
+                    <p class="text-accent mt-3 font-semibold">— Sneha R. (Housewarming)</p>
                 </div>
             </div>
         </section>
@@ -116,7 +129,10 @@
 
     <footer class="text-center py-6 border-t border-gray-800 bg-black/40">
         <p class="text-gray-500 text-sm">
-            <span class="astro-logo text-[#FFC300]">★</span>
+            <svg class="w-4 h-4 text-accent inline-block mr-1 align-text-bottom" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                <path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
+            </svg>
             &copy; 2025 AstroMaps. All rights reserved.
         </p>
     </footer>
