@@ -3,77 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astro-Map Studio | Capture Your Moment Under the Stars</title>
+    <title>Astro-Map Studio | Your Custom Moment Under The Stars</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="formspree-endpoint" content="https://formspree.io/f/mqawzyzj">
 </head>
-<body>
-
+<body class="landing-page">
     <header>
         <h1>Astro-Map Studio</h1>
-        <h2>Capture the Sky Over Your Most Cherished Moment.</h2>
+        <h2>Commemorate the Stars of Your Lifetime Moment.</h2>
     </header>
 
     <div class="container">
-        <form id="orderForm">
-            <h3>1. Define Your Moment</h3>
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="date">Date of the Moment</label>
-                    <input type="date" id="date" name="Date" required>
+        <section id="hero" style="text-align: center; padding-bottom: 40px;">
+            <p style="font-size: 1.5em; color: var(--star-white);">
+                The perfect heirloom gift. We map the exact star alignment from any date, time, and location on Earth, engraved onto wood, resin, or metal.
+            </p>
+            <a href="customize.html" class="btn btn-gold btn-cta">
+                ✨ DESIGN YOUR CUSTOM STAR MAP NOW
+            </a>
+        </section>
+
+        <section id="reviews">
+            <h3 style="text-align: center; color: var(--accent-gold);">See Our Happy Customers</h3>
+            
+            <div class="slideshow-container">
+                <div class="slide">
+                    <img src="https://via.placeholder.com/600x400/1E234B/FFC300?text=Customer+Map+1+(Plaque)" alt="Customer Review 1">
+                    <div class="review-text">
+                        "The most sentimental gift ever! The map of our engagement night is stunning on the wall." - A.K., Mumbai
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="time">Time (Optional)</label>
-                    <input type="time" id="time" name="Time">
+                <div class="slide">
+                    <img src="https://via.placeholder.com/600x400/1E234B/FFC300?text=Customer+Map+2+(Coaster+Set)" alt="Customer Review 2">
+                    <div class="review-text">
+                        "The resin coasters are beautiful! Perfect wedding favours. Highly recommend Astro-Map." - P.S., Bangalore
+                    </div>
                 </div>
-                <div class="form-group" style="grid-column: 1 / -1;">
-                    <label for="location">Location (City, Country)</label>
-                    <input type="text" id="location" name="Location" placeholder="e.g., Mumbai, India" required>
-                </div>
-                <div class="form-group" style="grid-column: 1 / -1;">
-                    <label for="quote">Personalized Quote/Title (On the Map)</label>
-                    <textarea id="quote" name="Quote" placeholder="e.g., The Night We Said I Do"></textarea>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/600x400/1E234B/FFC300?text=Customer+Map+3+(Charm)" alt="Customer Review 3">
+                    <div class="review-text">
+                        "Loved the keychain! Simple, elegant, and so meaningful. Great quality engraving." - R.J., Delhi
+                    </div>
                 </div>
             </div>
+            
+        </section>
 
-            <hr style="border-color: rgba(255, 255, 255, 0.1);">
-
-            <h3>2. Select Your Product Aesthetic</h3>
-            <div class="form-group" style="margin-bottom: 20px;">
-                <label for="product">Choose Product & Price</label>
-                <select id="product" name="Product_Choice" required>
-                    <option value="">-- Select Product --</option>
-                    <option value="plaque">The Grand Plaque (Wood Engraved) - ₹2,999</option>
-                    <option value="coaster">Celestial Coaster (Resin/Cement) - ₹699</option>
-                    <option value="charm">Celestial Charm (Metal Keychain) - ₹399</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="design">Design Style</label>
-                <select id="design" name="Design_Style" required>
-                    <option value="Minimalist">Minimalist (Black on White)</option>
-                    <option value="Cosmic">Cosmic (Navy & Gold)</option>
-                    <option value="Industrial">Industrial (White on Concrete)</option>
-                </select>
-            </div>
-
-
-            <h3 style="margin-top: 30px;">3. Preview Map (Simulated)</h3>
-            <div id="preview-area">
-                Enter your details and click 'Generate Preview' below.
-            </div>
-
-            <div class="button-group">
-                <button type="button" class="btn btn-gold" id="previewBtn">GENERATE PREVIEW</button>
-                <button type="submit" class="btn btn-gold" style="margin-left: 20px;">PLACE ORDER & SUBMIT DATA</button>
-            </div>
-            <p id="message" style="text-align: center; margin-top: 15px; font-size: 0.9em; color: var(--accent-gold);"></p>
-
-            </form>
+        <section style="text-align: center; padding-top: 40px;">
+            <a href="customize.html" class="btn btn-gold btn-cta">
+                BEGIN YOUR CUSTOMIZATION
+            </a>
+        </section>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        let slideIndex = 0;
+        showSlides();
 
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+    </script>
 </body>
 </html>

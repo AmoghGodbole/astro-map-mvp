@@ -2,29 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const previewBtn = document.getElementById('previewBtn');
     const orderForm = document.getElementById('orderForm');
     
-    // Set a default value to trigger a preview on load
-    window.onload = generateMapPreview; 
-    
-    // --- Step 1: Simulated Map Preview Logic ---
-    previewBtn.addEventListener('click', generateMapPreview);
+    // Attempt to generate preview on load (if elements exist on the page)
+    if (previewBtn) {
+        window.onload = generateMapPreview; 
+        previewBtn.addEventListener('click', generateMapPreview);
+    }
 
+    // --- Step 1: Simulated Map Preview Logic ---
     function generateMapPreview() {
-        const date = document.getElementById('date').value || '[Date Missing]';
-        const location = document.getElementById('location').value || '[Location Missing]';
-        const product = document.getElementById('product').value;
+        const dateInput = document.getElementById('date');
+        const locationInput = document.getElementById('location');
+        const productInput = document.getElementById('product');
         const previewArea = document.getElementById('preview-area');
 
-        // Check for required inputs to display a helpful message
+        // Check if all necessary elements are present (prevents errors on index.html)
+        if (!dateInput || !locationInput || !productInput || !previewArea) return;
+
+        const date = dateInput.value || '[Date Missing]';
+        const location = locationInput.value || '[Location Missing]';
+        const product = productInput.value;
+
         if (!date || !location || !product) {
             previewArea.innerHTML = "Please enter a Date, Location, and select a Product to generate a simulated preview.";
             return;
         }
 
-        // Simulating the image based on selected product and color
-        const baseColor = product === 'coaster' ? '333333' : '0A0A1F'; // Darker for coaster simulation
+        // Simulating the image URL based on product
+        const baseColor = product === 'coaster' ? '333333' : '0A0A1F'; 
         const accentColor = 'FFC300'; 
         
-        // Use a placeholder service for visual simulation
         const simulatedImage = `https://via.placeholder.com/600x600/${baseColor}/${accentColor}?text=Map+for+${location}`;
         const momentText = `The Sky over ${location} on ${date}.`;
         
@@ -38,67 +44,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Step 2: Form Submission to Formspree (Data Capture) ---
-    orderForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Stop default browser form submission
+    if (orderForm) {
+        orderForm.addEventListener('submit', function(event) {
+            event.preventDefault(); 
 
-        const form = event.target;
-        const formspreeEndpoint = document.querySelector('meta[name="formspree-endpoint"]').content;
-        const messageElement = document.getElementById('message');
-        const submitButton = form.querySelector('button[type="submit"]');
+            const form = event.target;
+            const formspreeEndpoint = document.querySelector('meta[name="formspree-endpoint"]').content;
+            const messageElement = document.getElementById('message');
+            const submitButton = form.querySelector('button[type="submit"]');
 
-        messageElement.textContent = "Submitting data, please wait...";
-        submitButton.disabled = true;
-
-        // Use FormData to easily grab all form inputs
-        const formData = new FormData(form);
-
-        // Fetch API to submit the custom data in the background
-        fetch(formspreeEndpoint, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
+            if (!formspreeEndpoint) {
+                messageElement.textContent = "FATAL ERROR: Formspree endpoint is missing in the meta tag!";
+                return;
             }
-        })
-        .then(response => {
-            if (response.ok) {
-                messageElement.textContent = "Success! Your order details have been submitted. Thank you!";
-                // *** CRITICAL STEP: FUTURE PAYMENT INTEGRATION ***
-                
-                /* // STEP 3: Get the correct payment link from the hidden inputs 
-                const product = document.getElementById('product').value;
-                let paymentLink = '';
 
-                if (product === 'plaque') {
-                    paymentLink = document.getElementById('plaque_link').value;
-                } else if (product === 'coaster') {
-                    paymentLink = document.getElementById('coaster_link').value;
-                } else if (product === 'charm') {
-                    paymentLink = document.getElementById('charm_link').value;
+            messageElement.textContent = "Submitting data, please wait...";
+            submitButton.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch(formspreeEndpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
                 }
-
-                // Redirect the user to the secure payment link after successful data capture
-                if (paymentLink) {
-                   // window.location.href = paymentLink;
-                   messageElement.textContent = "Data submitted! Redirecting to payment...";
+            })
+            .then(response => {
+                if (response.ok) {
+                    messageElement.textContent = "Success! Your custom order details have been submitted. We will be in touch shortly.";
+                    
+                    /* --- FUTURE PAYMENT INTEGRATION LOGIC ---
+                    const product = document.getElementById('product').value;
+                    const plaqueLink = document.getElementById('plaque_link').value;
+                    // ... get other links ...
+                    
+                    if (paymentLink) {
+                       // window.location.href = paymentLink;
+                    } 
+                    */
+                   
+                   // For MVP launch, just clear the form and display success message
+                   form.reset();
+                   
                 } else {
-                   messageElement.textContent = "Data submitted! (Awaiting Payment Link Integration)";
+                    messageElement.textContent = "Error submitting data. Please try again.";
                 }
-                */
-               
-               // For MVP launch without payment, just clear the form and display a success message
-               form.reset();
-               
-            } else {
-                messageElement.textContent = "Error submitting data. Please check your Formspree endpoint and try again.";
-            }
-        })
-        .catch(error => {
-            console.error('Submission error:', error);
-            messageElement.textContent = "An unexpected error occurred. Please try again.";
-        })
-        .finally(() => {
-            submitButton.disabled = false;
+            })
+            .catch(error => {
+                console.error('Submission error:', error);
+                messageElement.textContent = "An unexpected error occurred. Please try again.";
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+            });
         });
-    });
+    }
 });

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro-Map Studio | Customize Order</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="formspree-endpoint" content="https://formspree.io/f/mqawzyzj">
+</head>
+<body>
+    <nav style="text-align: right; padding: 10px 20px;">
+        <a href="index.html" style="color: var(--star-white); text-decoration: none; font-size: 0.9em;">← Back to Home</a>
+    </nav>
+    
+    <header>
+        <h1>Custom Star Map Design</h1>
+        <h2>Enter the data for your personalized moment.</h2>
+    </header>
+
+    <div class="container">
+        <form id="orderForm">
+            <h3>1. Define Your Moment</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="date">Date of the Moment</label>
+                    <input type="date" id="date" name="Date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time (Optional)</label>
+                    <input type="time" id="time" name="Time">
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="location">Location (City, Country)</label>
+                    <input type="text" id="location" name="Location" placeholder="e.g., Mumbai, India" required>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="quote">Personalized Quote/Title (On the Map)</label>
+                    <textarea id="quote" name="Quote" placeholder="e.g., The Night We Said I Do"></textarea>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255, 255, 255, 0.1);">
+
+            <h3>2. Select Your Product Aesthetic</h3>
+            <div class="form-grid">
+                <div class="form-group" style="grid-column: 1 / 2;">
+                    <label for="product">Choose Product & Price</label>
+                    <select id="product" name="Product_Choice" required>
+                        <option value="">-- Select Product --</option>
+                        <option value="plaque">The Grand Plaque (Wood Engraved) - ₹2,999</option>
+                        <option value="coaster">Celestial Coaster (Resin/Cement) - ₹699</option>
+                        <option value="charm">Celestial Charm (Metal Keychain) - ₹399</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="grid-column: 2 / 3;">
+                    <label for="design">Design Style</label>
+                    <select id="design" name="Design_Style" required>
+                        <option value="Minimalist">Minimalist (Black on White)</option>
+                        <option value="Cosmic">Cosmic (Navy & Gold)</option>
+                        <option value="Industrial">Industrial (White on Concrete)</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">3. Preview Map (Simulated)</h3>
+            <div id="preview-area">
+                Enter your details and click 'Generate Preview' below.
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn btn-gold" id="previewBtn">GENERATE PREVIEW</button>
+                <button type="submit" class="btn btn-gold" style="margin-left: 20px;">PLACE ORDER & SUBMIT DATA</button>
+            </div>
+            <p id="message" style="text-align: center; margin-top: 15px; font-size: 0.9em; color: var(--accent-gold);"></p>
+
+            </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

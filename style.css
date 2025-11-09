@@ -1,4 +1,4 @@
-/* === Minimalist, Cosmic CSS Styling === */
+/* === Global Variables and Base Reset === */
 :root {
     --dark-blue: #0A0A1F;
     --star-white: #E6F0FF;
@@ -45,7 +45,17 @@ h2 {
     box-shadow: 0 0 20px rgba(255, 195, 0, 0.2);
 }
 
-/* === Form Styling === */
+/* Navigation for Customizer Page */
+nav {
+    padding: 10px 20px;
+}
+nav a {
+    color: var(--star-white);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/* === Form Styling (Customizer Page) === */
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -106,7 +116,7 @@ textarea {
     border-radius: 4px;
 }
 
-/* === Buttons === */
+/* === Buttons & CTA === */
 .button-group {
     text-align: center;
     margin-top: 30px;
@@ -120,6 +130,7 @@ textarea {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.1s;
+    text-decoration: none; /* For the anchor tag CTA button */
 }
 
 .btn-gold {
@@ -130,4 +141,93 @@ textarea {
 .btn-gold:hover {
     background-color: #FFD740;
     transform: translateY(-2px);
+}
+
+/* CTA Button size adjustment for the Landing Page */
+.btn-cta {
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 1.3em;
+    padding: 18px 40px;
+    letter-spacing: 1px;
+}
+
+/* === Slideshow Components (Landing Page) === */
+.slideshow-container {
+    max-width: 600px;
+    position: relative;
+    margin: 30px auto 0 auto;
+    border: 2px solid var(--accent-gold);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 195, 0, 0.4);
+}
+
+.slide {
+    display: none;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.review-text {
+    background-color: rgba(10, 10, 31, 0.9);
+    color: var(--star-white);
+    padding: 15px;
+    font-size: 1.1em;
+    font-style: italic;
+    border-top: 1px solid rgba(255, 195, 0, 0.3);
+}
+
+/* === Responsive Mobile Optimizations === */
+@media (max-width: 600px) {
+    /* Adjust container padding and margins for better use of screen space */
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    /* Reduce header font sizes to fit and maintain clean aesthetic */
+    h1 {
+        font-size: 2em;
+        letter-spacing: 3px;
+    }
+    h2 {
+        font-size: 1em;
+    }
+
+    /* CRITICAL: Collapse the 2-column form grid into a single column */
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Ensure full width elements (like location/quote) still fill the single column */
+    .form-group[style*="grid-column: 1 / -1"] {
+        grid-column: 1 / -1 !important;
+    }
+
+    /* Reduce padding and font size on the main CTA button */
+    .btn-cta {
+        font-size: 1.1em;
+        padding: 15px 25px;
+        display: block; /* Make the button full width */
+        width: 100%;
+    }
+
+    /* Adjust the spacing between the two buttons on the customize page */
+    .button-group button {
+        margin: 10px 0 !important; /* Reset margin and add vertical separation */
+        display: block;
+        width: 100%;
+    }
+
+    /* Ensure simulated preview image shrinks nicely */
+    #preview-image {
+        max-width: 90%;
+    }
 }
