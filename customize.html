@@ -7,7 +7,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;800&display=swap" rel="stylesheet">
 
     <meta name="formspree-endpoint" content="https://formspree.io/f/mqawzyzj">
     
@@ -16,7 +16,7 @@
             --dark-blue: #0A0A1F;
             --accent-blue: #B3B4FF;
         }
-        body { font-family: 'Space Grotesk', sans-serif; }
+        body { font-family: 'Poppins', sans-serif; }
     </style>
     <script>
         tailwind.config = {
@@ -74,7 +74,42 @@
 
             <hr class="border-gray-700 my-8">
 
-            <h3 class="text-2xl font-bold mb-4">2. Select Your Product Aesthetic</h3>
+            <h3 class="text-2xl font-bold mb-4">2. Shipping Details</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="flex flex-col md:col-span-2">
+                    <label for="full_name" class="mb-2 font-medium">Full Name</label>
+                    <input type="text" id="full_name" name="Shipping_FullName" required class="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:ring-accent focus:border-accent">
+                </div>
+                <div class="flex flex-col md:col-span-2">
+                    <label for="address_line1" class="mb-2 font-medium">Address Line 1 (House No., Building Name)</label>
+                    <input type="text" id="address_line1" name="Shipping_Address1" required class="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:ring-accent focus:border-accent">
+                </div>
+                <div class="flex flex-col md:col-span-2">
+                    <label for="address_line2" class="mb-2 font-medium">Address Line 2 (Street, Area, Landmark)</label>
+                    <input type="text" id="address_line2" name="Shipping_Address2" class="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:ring-accent focus:border-accent">
+                </div>
+                <div class="flex flex-col">
+                    <label for="city" class="mb-2 font-medium">City</label>
+                    <input type="text" id="city" name="Shipping_City" required class="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:ring-accent focus:border-accent">
+                </div>
+                <div class="flex flex-col">
+                    <label for="state" class="mb-2 font-medium">State / Province</label>
+                    <input type="text" id="state" name="Shipping_State" required class="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:ring-accent focus:border-accent">
+                </div>
+                <div class="flex flex-col">
+                    <label for="pincode" class="mb-2 font-medium">Pincode / Zip</label>
+                    <input type="text" id="pincode" name="Shipping_Pincode" required class="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:ring-accent focus:border-accent">
+                </div>
+                <div class="flex flex-col">
+                    <label for="phone" class="mb-2 font-medium">Phone Number</label>
+                    <input type="tel" id="phone" name="Shipping_Phone" required class="p-3 border border-gray-700 rounded-lg bg-gray-800 text-white focus:ring-accent focus:border-accent">
+                </div>
+            </div>
+
+            <hr class="border-gray-700 my-8">
+            
+            <h3 class="text-2xl font-bold mb-4">3. Select Product & Design</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div class="flex flex-col">
                     <label for="product" class="mb-2 font-medium">Choose Product & Price</label>
@@ -95,26 +130,21 @@
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-center mb-4">3. Map Preview (Simulated)</h3>
-            <div id="preview-area" class="text-center p-6 border-2 border-dashed border-gray-600 rounded-lg min-h-[200px] flex items-center justify-center italic text-gray-500">
-                Enter your details and click 'Generate Preview' below.
-            </div>
-
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
-                <button type="button" class="btn p-3 rounded-full text-lg font-bold bg-accent text-gray-900 
-                    hover:bg-accent-hover transition duration-300 transform hover:scale-[1.02] w-full sm:w-auto" id="previewBtn">
-                    GENERATE PREVIEW
-                </button>
-                <button type="submit" class="btn p-3 rounded-full text-lg font-bold bg-white text-gray-900 
-                    hover:bg-gray-200 transition duration-300 transform hover:scale-[1.02] w-full sm:w-auto">
-                    PLACE ORDER & SUBMIT DATA
+                <button type="submit" class="btn p-3 rounded-full text-xl font-bold bg-accent text-gray-900 
+                    hover:bg-accent-hover transition duration-300 transform hover:scale-[1.02] w-full sm:w-auto">
+                    PLACE ORDER & PROCEED TO PAYMENT
                 </button>
             </div>
             <p id="message" class="text-center mt-4 text-lg font-medium text-accent"></p>
+            
+            <input type="hidden" id="plaque_link" value="https://rzp.io/rzp/5mAC2RE">
+            <input type="hidden" id="coaster_link" value="YOUR_RAZORPAY_TEST_COASTER_LINK">
+            <input type="hidden" id="charm_link" value="YOUR_RAZORPAY_TEST_CHARM_LINK">
 
-            </form>
+        </form>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
